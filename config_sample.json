@@ -1,11 +1,7 @@
 {
     "username": "",
     "password": "",
-    "schedule":{
-        "hour":0,
-        "minute":0,
-        "rand_delay": 0
-    },
+    "schedule": "00:00",
     "point":{
         "lng":0,
         "lat":0

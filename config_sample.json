@@ -13,7 +13,8 @@
     "push":{
         "telegram":{
             "chat_id":0,
-            "bot_token":""
+            "bot_token":"",
+            "proxy":""
         }
     },
     "run_immediate":true

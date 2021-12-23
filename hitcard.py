@@ -227,4 +227,4 @@ class HealthCheckInHelper(ZJULogin):
         except requests.exceptions.ConnectionError as err:
             # reraise as KubeException, but log stacktrace.
             #调用tg推送模块
-            post_tg('统一认证平台登录失败,请检查服务器网络状态')
+            post_tg(self.config['push']['telegram'],'统一认证平台登录失败,请检查服务器网络状态')

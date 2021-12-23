@@ -1,0 +1,20 @@
+{
+    "username": "",
+    "password": "",
+    "schedule":{
+        "hour":0,
+        "minute":0,
+        "rand_delay": 0
+    },
+    "point":{
+        "lng":0,
+        "lat":0
+    },
+    "push":{
+        "telegram":{
+            "chat_id":0,
+            "bot_token":""
+        }
+    },
+    "run_immediate":true
+}

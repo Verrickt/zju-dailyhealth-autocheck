@@ -10,9 +10,10 @@ CHAT_ID = os.getenv("CHAT_ID")	    #推送消息的CHAT_ID
 
 
 
-def post_tg(message):
+def post_tg(config,message):
+    TG_TOKEN = config['bot_token']
+    CHAT_ID = config['chat_id']
     telegram_message = f"{message}"
-               
     params = (
         ('chat_id', CHAT_ID),
         ('text', telegram_message),

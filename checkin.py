@@ -8,8 +8,7 @@ import random
 import argparse
 from tgpush import post_tg
 from hitcard import *
-#from test1 import *
-
+import schedule
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--config',type=str,default='./config.json')
@@ -23,7 +22,9 @@ class LoginError(Exception):
 
 
 
-
+def my_job(config):
+    s = HealthCheckInHelper(config,delay_run=True)
+    s.run()
 
 
 
@@ -37,8 +38,13 @@ if __name__ == '__main__':
 
     with open(config,'r') as f:
         config = json.load(f)
-    account,pwd = config.get('username'),config.get('password')
 
-    s = HealthCheckInHelper(config)
-    s.run() 
+    scheduled_time = config['schedule']
+    schedule.every().day.at(scheduled_time).do(my_job)
+    if config['run_immediate']:
+        my_job(config)
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
+
  

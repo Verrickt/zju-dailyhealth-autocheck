@@ -40,7 +40,7 @@ if __name__ == '__main__':
         config = json.load(f)
 
     scheduled_time = config['schedule']
-    schedule.every().day.at(scheduled_time).do(my_job)
+    schedule.every().day.at(scheduled_time).do(my_job,config)
     if config['run_immediate']:
         my_job(config)
     while True:
